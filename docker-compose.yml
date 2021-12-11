@@ -1,6 +1,20 @@
 version: '3'
 services:
-  app:
-    build: .
-    ports:
-      - "8081:8080"
+ webapp:
+  build:
+   context: .
+   dockerfile: Dockerfile
+  ports:
+   - "8100:8080"
+  volumes:
+   - appdata:/var/local/tomcat
+  networks:
+   - user_network
+
+
+
+volumes:
+ appdata:
+
+networks:
+ user_network:
